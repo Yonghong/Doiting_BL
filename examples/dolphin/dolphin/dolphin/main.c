@@ -467,7 +467,7 @@ static void wifi_task_start(void)
     }
     stack_wifi_init = 1;
 
-    puts("[OS] Starting wifi_main task...\r\n");
+    puts("drx.[OS] Starting wifi_main task...\r\n"); // added by drx.
     xTaskCreateStatic(wifi_main, (char*)"fw", 1536, NULL, 30, wifi_fw_stack, &wifi_fw_task);
     /*Trigger to start Wi-Fi*/
     printf("Start Wi-Fi fw is Done @%lums\r\n", bl_timer_now_us()/1000);

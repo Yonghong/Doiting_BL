@@ -1253,11 +1253,11 @@ const static struct state stateError = {
 int wifi_mgmr_event_notify(wifi_mgmr_msg_t *msg)
 {
     while (0 == wifiMgmr.ready) {
-        os_printf("Wait Wi-Fi Mgmr Start up...\r\n");
+        os_printf("4.drx.wifi_mgmr.Wait Wi-Fi Mgmr Start up...\r\n"); // modified by drx.
         os_thread_delay(20);
     }
     if (os_mq_send(&(wifiMgmr.mq), msg, msg->len)) {
-        os_printf("Failed when send msg 0x%p, len dec:%u\r\n", msg, (unsigned int)msg->len);
+        os_printf("4.drx.wifi_mgmr.Failed when send msg 0x%p, len dec:%u\r\n", msg, (unsigned int)msg->len);
         return -1;
     }
     return 0;

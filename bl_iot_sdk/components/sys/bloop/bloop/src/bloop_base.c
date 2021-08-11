@@ -46,7 +46,7 @@ int bloop_init(struct loop_ctx *loop)
     }
     INIT_UTILS_DLIST_HEAD(&(loop->timer_dlist));
     INIT_UTILS_DLIST_HEAD(&(loop->timer_dued));
-    printf("=== %d task inited\r\n", i);
+    printf("drx.=== %d task inited\r\n", i); // modified by drx.
 
     return 0;
 }

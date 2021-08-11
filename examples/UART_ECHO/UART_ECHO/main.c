@@ -484,7 +484,7 @@ static void aos_loop_proc(void *pvParameters)
 
     fd_console = aos_open("/dev/ttyS0", 0);
     if (fd_console >= 0) {
-        printf("Init CLI with event Driven\r\n");
+        printf("drx.aos_loop_proc.Init CLI with event Driven\r\n"); // added by drx.
         aos_cli_init(0);
         aos_poll_read_fd(fd_console, aos_cli_event_cb_read_get(), (void*)0x12345678);
         _cli_init();
@@ -497,7 +497,7 @@ static void aos_loop_proc(void *pvParameters)
 
     aos_loop_run();
 
-    puts("------------------------------------------\r\n");
+    puts("drx.aos_loop_proc.------------------------------------------\r\n"); // added by drx.
     puts("+++++++++Critical Exit From Loop++++++++++\r\n");
     puts("******************************************\r\n");
     vTaskDelete(NULL);
@@ -509,7 +509,7 @@ static void _dump_boot_info(void)
     char chip_feature[40];
     const char *banner;
 
-    puts("Booting BL602 Chip...\r\n");
+    puts("drx.dump_boot_info.Booting BL602 Chip...\r\n"); // added by drx.
 
     /*Display Banner*/
     if (0 == bl_chip_banner(&banner)) {
@@ -518,13 +518,13 @@ static void _dump_boot_info(void)
     puts("\r\n");
     /*Chip Feature list*/
     puts("\r\n");
-    puts("------------------------------------------------------------\r\n");
-    puts("RISC-V Core Feature:");
+    puts("drx.d_b_i.------------------------------------------------------------\r\n"); // added by drx.
+    puts("drx.d_b_i.RISC-V Core Feature:"); // added by drx.
     bl_chip_info(chip_feature);
     puts(chip_feature);
     puts("\r\n");
 
-    puts("Build Version: ");
+    puts("drx.d_b_i.Build Version: "); // added by drx.
     puts(BL_SDK_VER); // @suppress("Symbol is not resolved")
     puts("\r\n");
 
@@ -540,7 +540,7 @@ static void _dump_boot_info(void)
     puts(__DATE__);
     puts("\r\n");
 
-    puts("Build Time: ");
+    puts("drx.d_b_i.Build Time: "); // added by drx.
     puts(__TIME__);
     puts("\r\n");
     puts("------------------------------------------------------------\r\n");
@@ -573,26 +573,26 @@ void bfl_main()
     time_main = bl_timer_now_us();
     /*Init UART In the first place*/
     bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
-    puts("Starting bl602 now....\r\n");
+    puts("drx.bfl_main.Starting bl602 now....\r\n"); // added by drx.
      bl_sys_init();
      _dump_boot_info();
 
     vPortDefineHeapRegions(xHeapRegions);
-    printf("Heap %u@%p, %u@%p\r\n",
+    printf("drx.bfl_main.Heap %u@%p, %u@%p\r\n",
             (unsigned int)&_heap_size, &_heap_start,
             (unsigned int)&_heap_wifi_size, &_heap_wifi_start
-    );
-    printf("Boot2 consumed %lums\r\n", time_main / 1000);
+    ); // added by drx.
+    printf("drx.bfl_main.Boot2 consumed %lums\r\n", time_main / 1000); // added by drx.
 
     system_init();
     system_thread_init();
 
-    puts("[OS] Starting aos_loop_proc task...\r\n");
-    xTaskCreateStatic(aos_loop_proc, (char*)"event_loop", 1024, NULL, 15, aos_loop_proc_stack, &aos_loop_proc_task);
-    puts("[OS] Starting TCP/IP Stack...\r\n");
+    puts("***drx.bfl_main.IMPORTANT.***[OS] Starting aos_loop_proc task...\r\n"); // added by drx.
+    xTaskCreateStatic(aos_loop_proc, (char*)"drx.bfl_main.event_loop", 1024, NULL, 15, aos_loop_proc_stack, &aos_loop_proc_task); // added by drx.
+    puts("drx.bfl_main.[OS] Starting TCP/IP Stack...\r\n"); // added by drx.
     tcpip_init(NULL, NULL);
 
-    puts("[OS] Starting OS Scheduler...\r\n");
+    puts("drx.bfl_main.[OS] Starting OS Scheduler...\r\n"); // added by drx.
     vTaskStartScheduler();
 }
 

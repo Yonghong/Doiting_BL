@@ -30,6 +30,8 @@
 
 void user_main(void){
 
+    puts("drx.call user_main function...\n"); // added by drx.
+
     wifi_init(wifi_event_handler);
     wifi_setup_sta();
 

@@ -76,7 +76,7 @@ aos_loop_t aos_loop_init(void)
     if (!g_main_ctx) {
         aos_task_key_create(&g_loop_key);
     } else if (ctx) {
-        LOGE(TAG, "yloop already inited");
+        LOGE(TAG, "2.drx.yloop already inited"); // modified by drx.
         return ctx;
     }
 

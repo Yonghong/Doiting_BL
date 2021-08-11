@@ -312,7 +312,8 @@ static void _connect_wifi()
            freq
     );
     //wifi_mgmr_sta_connect(wifi_interface, ssid, pmk, NULL);
-    wifi_mgmr_sta_connect(wifi_interface, ssid, password, pmk, mac, band, freq);
+    // wifi_mgmr_sta_connect(wifi_interface, ssid, password, pmk, mac, band, freq);
+    wifi_mgmr_sta_connect(wifi_interface, "DATONG398", "11111111", pmk, mac, band, freq); // added by drx.
 }
 
 static void wifi_sta_connect(char *ssid, char *password)
@@ -320,7 +321,8 @@ static void wifi_sta_connect(char *ssid, char *password)
     wifi_interface_t wifi_interface;
 
     wifi_interface = wifi_mgmr_sta_enable();
-    wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+    // wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+    wifi_mgmr_sta_connect(wifi_interface, "DATONG398", "11111111", NULL, NULL, 0, 0); // added by drx.
 }
 
 static void event_cb_wifi_event(input_event_t *event, void *private_data)
@@ -656,27 +658,27 @@ void bfl_main()
 
     /*Init UART In the first place*/
     bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
-    puts("Starting bl602 now....\r\n");
+    puts("1.DRX.Starting bl602 now....\r\n"); // ADDED BY DRX.
     //GLB_Set_EM_Sel(0);
 
     _dump_boot_info();
 
     vPortDefineHeapRegions(xHeapRegions);
-    printf("Heap %u@%p, %u@%p\r\n",
+    printf("1.DRX.Heap %u@%p, %u@%p\r\n",
             (unsigned int)&_heap_size, &_heap_start,
             (unsigned int)&_heap_wifi_size, &_heap_wifi_start
-    );
+    ); // ADDED BY DRX.
 
     system_init();
     system_thread_init();
 
-    puts("[OS] Starting proc_hellow_entry task...\r\n");
-    xTaskCreateStatic(proc_hellow_entry, (char*)"hellow", 512, NULL, 15, proc_hellow_stack, &proc_hellow_task);
+    puts("1.DRX.[OS] Starting proc_hellow_entry task...\r\n"); // ADDED BY DRX.
+    xTaskCreateStatic(proc_hellow_entry, (char*)"1.DRX.hellow", 512, NULL, 15, proc_hellow_stack, &proc_hellow_task);
     puts("[OS] Starting aos_loop_proc task...\r\n");
-    xTaskCreateStatic(aos_loop_proc, (char*)"event_loop", 1024, NULL, 15, aos_loop_proc_stack, &aos_loop_proc_task);
-    puts("[OS] Starting TCP/IP Stack...\r\n");
+    xTaskCreateStatic(aos_loop_proc, (char*)"1.DRX.event_loop", 1024, NULL, 15, aos_loop_proc_stack, &aos_loop_proc_task); // ADDED BY DRX.
+    puts("1.drx.newadded.[OS] Starting TCP/IP Stack...\r\n"); // ADDED BY DRX.
     tcpip_init(NULL, NULL);
 
-    puts("[OS] Starting OS Scheduler...\r\n");
+    puts("1.DRX.[OS] Starting OS Scheduler...\r\n"); // ADDED BY DRX.
     vTaskStartScheduler();
 }

@@ -314,7 +314,8 @@ static void _connect_wifi()
            freq
     );
     //wifi_mgmr_sta_connect(wifi_interface, ssid, pmk, NULL);
-    wifi_mgmr_sta_connect(wifi_interface, ssid, password, pmk, mac, band, freq);
+    // wifi_mgmr_sta_connect(wifi_interface, ssid, password, pmk, mac, band, freq);
+    wifi_mgmr_sta_connect(wifi_interface, "DATONG398", "11111111", pmk, mac, band, freq);
 }
 
 static void wifi_sta_connect(char *ssid, char *password)
@@ -322,7 +323,8 @@ static void wifi_sta_connect(char *ssid, char *password)
     wifi_interface_t wifi_interface;
 
     wifi_interface = wifi_mgmr_sta_enable();
-    wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+    // wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+    wifi_mgmr_sta_connect(wifi_interface, "DATONG398", "11111111", NULL, NULL, 0, 0);
 }
 
 static void event_cb_wifi_event(input_event_t *event, void *private_data)
@@ -528,6 +530,7 @@ static void aos_loop_proc(void *pvParameters)
     fd_console = aos_open("/dev/ttyS0", 0);
     if (fd_console >= 0) {
         printf("Init CLI with event Driven\r\n");
+        puts("drx.Init CLI with event Driven\r\n");//added by drx.
         aos_cli_init(0);
         aos_poll_read_fd(fd_console, aos_cli_event_cb_read_get(), (void*)0x12345678);
         _cli_init();
@@ -603,7 +606,7 @@ static void _dump_boot_info(void)
     char chip_feature[40];
     const char *banner;
 
-    puts("Booting BL602 Chip...\r\n");
+    puts("1.drx.Booting BL602 Chip...\r\n"); // added by drx.
 
     /*Display Banner*/
     if (0 == bl_chip_banner(&banner)) {
@@ -664,21 +667,21 @@ void bfl_main()
     _dump_boot_info();
 
     vPortDefineHeapRegions(xHeapRegions);
-    printf("Heap %u@%p, %u@%p\r\n",
+    printf("2.drx.Heap %u@%p, %u@%p\r\n",
             (unsigned int)&_heap_size, &_heap_start,
             (unsigned int)&_heap_wifi_size, &_heap_wifi_start
-    );
+    ); // added by drx.
 
     system_init();
-    system_thread_init();
+    system_thread_init(); // do nothing at the present. added by drx.
 
-    puts("[OS] Starting proc_hellow_entry task...\r\n");
-    xTaskCreateStatic(proc_hellow_entry, (char*)"hellow", 512, NULL, 15, proc_hellow_stack, &proc_hellow_task);
-    puts("[OS] Starting aos_loop_proc task...\r\n");
-    xTaskCreateStatic(aos_loop_proc, (char*)"event_loop", 1024, NULL, 15, aos_loop_proc_stack, &aos_loop_proc_task);
-    puts("[OS] Starting TCP/IP Stack...\r\n");
+    puts("2.drx.[OS] Starting proc_hellow_entry task...\r\n"); // added by drx.
+    xTaskCreateStatic(proc_hellow_entry, (char*)"2.drx.hellow", 512, NULL, 15, proc_hellow_stack, &proc_hellow_task); // added by drx.
+    puts("2.drx.[OS] Starting aos_loop_proc task...\r\n"); // added by drx.
+    xTaskCreateStatic(aos_loop_proc, (char*)"2.drx.event_loop", 1024, NULL, 15, aos_loop_proc_stack, &aos_loop_proc_task); // added by drx.
+    puts("2.drx.[OS] Starting TCP/IP Stack...\r\n"); // added by drx.
     tcpip_init(NULL, NULL);
 
-    puts("[OS] Starting OS Scheduler...\r\n");
+    puts("2.drx.[OS] Starting OS Scheduler...\r\n"); // added by drx.
     vTaskStartScheduler();
 }

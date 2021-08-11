@@ -356,7 +356,8 @@ static void wifi_sta_connect(char *ssid, char *password)
     wifi_interface_t wifi_interface;
 
     wifi_interface = wifi_mgmr_sta_enable();
-    wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+    // wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+    wifi_mgmr_sta_connect(wifi_interface, "DATONG398", "11111111", NULL, NULL, 0, 0);
 }
 
 static void scan_item_cb(wifi_mgmr_ap_item_t *env, uint32_t *param1, wifi_mgmr_ap_item_t *item)
@@ -424,19 +425,19 @@ static void event_cb_wifi_event(input_event_t *event, void *private_data)
     switch (event->code) {
         case CODE_WIFI_ON_INIT_DONE:
         {
-            printf("[APP] [EVT] INIT DONE %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] INIT DONE %lld\r\n", aos_now_ms()); // added by drx.
             wifi_mgmr_start_background(&conf);
         }
         break;
         case CODE_WIFI_ON_MGMR_DONE:
         {
-            printf("[APP] [EVT] MGMR DONE %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] MGMR DONE %lld\r\n", aos_now_ms()); // added by drx.
             _connect_wifi();
         }
         break;
         case CODE_WIFI_ON_SCAN_DONE:
         {
-            printf("[APP] [EVT] SCAN Done %lld, SCAN Result: %s\r\n",
+            printf("1.drx.[APP] [EVT] SCAN Done %lld, SCAN Result: %s\r\n", // added by drx.
                 aos_now_ms(),
                 WIFI_SCAN_DONE_EVENT_OK == event->value ? "OK" : "Busy now"
             );
@@ -445,7 +446,7 @@ static void event_cb_wifi_event(input_event_t *event, void *private_data)
         break;
         case CODE_WIFI_ON_DISCONNECT:
         {
-            printf("[APP] [EVT] disconnect %lld, Reason: %s\r\n",
+            printf("1.drx.[APP] [EVT] disconnect %lld, Reason: %s\r\n", // added by drx.
                 aos_now_ms(),
                 wifi_mgmr_status_code_str(event->value)
             );
@@ -455,40 +456,40 @@ static void event_cb_wifi_event(input_event_t *event, void *private_data)
         break;
         case CODE_WIFI_ON_CONNECTING:
         {
-            printf("[APP] [EVT] Connecting %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] Connecting %lld\r\n", aos_now_ms()); // added by drx.
         }
         break;
         case CODE_WIFI_CMD_RECONNECT:
         {
-            printf("[APP] [EVT] Reconnect %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] Reconnect %lld\r\n", aos_now_ms()); // added by drx.
         }
         break;
         case CODE_WIFI_ON_CONNECTED:
         {
-            printf("[APP] [EVT] connected %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] connected %lld\r\n", aos_now_ms()); // added by drx.
         }
         break;
         case CODE_WIFI_ON_PRE_GOT_IP:
         {
-            printf("[APP] [EVT] connected %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] connected %lld\r\n", aos_now_ms()); // added by drx.
         }
         break;
         case CODE_WIFI_ON_GOT_IP:
         {
-            printf("[APP] [EVT] GOT IP %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] GOT IP %lld\r\n", aos_now_ms()); // added by drx.
             printf("[SYS] Memory left is %d Bytes\r\n", xPortGetFreeHeapSize());
         }
         break;
         case CODE_WIFI_ON_PROV_CONNECT:
         {
-            printf("[APP] [EVT] [PROV] [CONNECT] %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] [PROV] [CONNECT] %lld\r\n", aos_now_ms()); // added by drx.
             conn_info = (struct _wifi_conn *)event->value;
             wifi_sta_connect(conn_info->ssid, conn_info->pask);
         }
         break;
         case CODE_WIFI_ON_PROV_DISCONNECT:
         {
-            printf("[APP] [EVT] [PROV] [DISCONNECT] %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] [PROV] [DISCONNECT] %lld\r\n", aos_now_ms()); // added by drx.
             wifi_mgmr_sta_disconnect();
             vTaskDelay(1000);
             wifi_mgmr_sta_disable(NULL);
@@ -497,19 +498,19 @@ static void event_cb_wifi_event(input_event_t *event, void *private_data)
         break;
         case CODE_WIFI_ON_PROV_SCAN_START:
         {
-            printf("[APP] [EVT] [PROV] [SCAN] %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] [PROV] [SCAN] %lld\r\n", aos_now_ms()); // added by drx.
             wifiprov_scan((void *)event->value);
         }
         break;
         case CODE_WIFI_ON_PROV_STATE_GET:
         {
-            printf("[APP] [EVT] [PROV] [STATE] %lld\r\n", aos_now_ms());
+            printf("1.drx.[APP] [EVT] [PROV] [STATE] %lld\r\n", aos_now_ms()); // added by drx.
             wifiprov_wifi_state_get((void *)event->value);
         }
         break;
         default:
         {
-            printf("[APP] [EVT] Unknown code %u, %lld\r\n", event->code, aos_now_ms());
+            printf("1.drx.[APP] [EVT] Unknown code %u, %lld\r\n", event->code, aos_now_ms()); // added by drx.
             /*nothing*/
         }
     }
@@ -768,7 +769,7 @@ static void _dump_boot_info(void)
     char chip_feature[40];
     const char *banner;
 
-    puts("Booting BL602 Chip...\r\n");
+    puts("2.drx.Booting BL602 Chip...\r\n"); // added by drx.
 
     /*Display Banner*/
     if (0 == bl_chip_banner(&banner)) {
@@ -778,12 +779,12 @@ static void _dump_boot_info(void)
     /*Chip Feature list*/
     puts("\r\n");
     puts("------------------------------------------------------------\r\n");
-    puts("RISC-V Core Feature:");
+    puts("2.drx.RISC-V Core Feature:"); // added by drx.
     bl_chip_info(chip_feature);
     puts(chip_feature);
     puts("\r\n");
 
-    puts("Build Version: ");
+    puts("2.drx.Build Version: "); // added by drx.
     puts(BL_SDK_VER); // @suppress("Symbol is not resolved")
     puts("\r\n");
 
@@ -805,7 +806,7 @@ static void _dump_boot_info(void)
     puts("Build Time: ");
     puts(__TIME__);
     puts("\r\n");
-    puts("------------------------------------------------------------\r\n");
+    puts("2.drx.------------------------------------------------------------\r\n"); // added by drx.
 
 }
 
@@ -836,27 +837,27 @@ void bfl_main()
 
     /*Init UART In the first place*/
     bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
-    puts("Starting bl602 now....\r\n");
+    puts("1.drx.Starting bl602 now....\r\n"); // added by drx.
 
     bl_sys_init();
 
     _dump_boot_info();
 
     vPortDefineHeapRegions(xHeapRegions);
-    printf("Heap %u@%p, %u@%p\r\n",
+    printf("1.drx.Heap %u@%p, %u@%p\r\n",
             (unsigned int)&_heap_size, &_heap_start,
             (unsigned int)&_heap_wifi_size, &_heap_wifi_start
-    );
+    ); // added by drx.
 
     system_init();
     system_thread_init();
 
-    puts("[OS] Starting aos_loop_proc task...\r\n");
+    puts("1.drx.[OS] Starting aos_loop_proc task...\r\n");
     xTaskCreateStatic(aos_loop_proc, (char*)"event_loop", 1024, NULL, 15, aos_loop_proc_stack, &aos_loop_proc_task);
 
-    puts("[OS] Starting TCP/IP Stack...\r\n");
+    puts("1.drx.[OS] Starting TCP/IP Stack...\r\n");
     tcpip_init(NULL, NULL);
 
-    puts("[OS] Starting OS Scheduler...\r\n");
+    puts("1.drx.[OS] Starting OS Scheduler...\r\n");
     vTaskStartScheduler();
 }

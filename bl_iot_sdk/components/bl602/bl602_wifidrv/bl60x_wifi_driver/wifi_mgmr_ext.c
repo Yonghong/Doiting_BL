@@ -121,11 +121,16 @@ static void wifi_eth_sta_enable(struct netif *netif, uint8_t mac[6])
     ip4_addr_t ipaddr;
     ip4_addr_t netmask;
     ip4_addr_t gw;
+    puts("4.drx.wifi_eth_sta_enable.start to config wifi IP address.\r\n");// added by drx.
 
-#if 0
-    IP4_ADDR(&ipaddr, 192, 168, 11, 111);
-    IP4_ADDR(&netmask, 255, 255, 255, 0);
-    IP4_ADDR(&gw, 192, 168, 11, 1);
+#if 1 // modified by drx.
+    // IP4_ADDR(&ipaddr, 192, 168, 11, 111);
+    // IP4_ADDR(&netmask, 255, 255, 255, 0);
+    // IP4_ADDR(&gw, 192, 168, 11, 1);
+    puts("4.drx.wifi_eth_sta_enable.wifi address set below ...\r\n");
+    IP4_ADDR(&ipaddr, 192, 168, 1, 108); // modified by drx.
+    IP4_ADDR(&netmask, 255, 255, 255, 0); 
+    IP4_ADDR(&gw, 192, 168, 1, 1); // modified by drx.
 #else
     ipaddr.addr = 0;
     netmask.addr = 0;
@@ -209,7 +214,7 @@ wifi_interface_t wifi_mgmr_sta_enable(void)
     }
     done = 1;
 
-    os_printf("---------STA enable\r\n");
+    os_printf("3.drx.---------STA enable\r\n"); // modified by drx.
     wifiMgmr.wlan_sta.mode = 0;//sta mode
     //TODO check wifiMgmr.wlan_sta status
     wifi_eth_sta_enable(&(wifiMgmr.wlan_sta.netif), wifiMgmr.wlan_sta.mac);

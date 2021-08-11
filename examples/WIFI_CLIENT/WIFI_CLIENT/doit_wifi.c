@@ -19,7 +19,7 @@
 
 #include "ulog.h"
 
-
+#include "bl602_ef_ctrl.h" // added by drx.
 
 #if 1
 #define TAG            "wifi"
@@ -47,7 +47,7 @@ static void event_cb_wifi_event(input_event_t *event, void *private_data)
     switch (event->code) {
         case CODE_WIFI_ON_DISCONNECT:
         {
-            LOGI(TAG, "wifi disconnect");
+            LOGI(TAG, "4.drx.wifi disconnect"); // added by drx.
             if(static_wifi_connect_status != 0){
                 static_wifi_connect_status = 0;
                 if(static_wifi_cb != NULL){
@@ -58,12 +58,12 @@ static void event_cb_wifi_event(input_event_t *event, void *private_data)
         break;
         case CODE_WIFI_ON_CONNECTED:
         {
-            LOGI(TAG, "wifi connect");
+            LOGI(TAG, "4.drx.wifi connect"); // added by drx.
         }
         break;
         case CODE_WIFI_ON_GOT_IP:
         {
-            LOGI(TAG, "wifi get ip");
+            LOGI(TAG, "4.drx.wifi get ip"); // added by drx.
             if(static_wifi_connect_status != 1){
                 static_wifi_connect_status = 1;
                 if(static_wifi_cb != NULL){
@@ -82,15 +82,15 @@ static void cmd_stack_wifi(char *buf, int len, int argc, char **argv)
 
 
     if (1 == stack_wifi_init) {
-        puts("Wi-Fi Stack Started already!!!\r\n");
+        puts("2.drx.Wi-Fi Stack Started already!!!\r\n"); //added by drx.
         return;
     }
     stack_wifi_init = 1;
 
-    printf("Start Wi-Fi fw @%lums\r\n", bl_timer_now_us()/1000);
+    printf("2.drx.Start Wi-Fi fw @%lums\r\n", bl_timer_now_us()/1000); //added by drx.
     hal_wifi_start_firmware_task();
     /*Trigger to start Wi-Fi*/
-    printf("Start Wi-Fi fw is Done @%lums\r\n", bl_timer_now_us()/1000);
+    printf("2.drx.Start Wi-Fi fw is Done @%lums\r\n", bl_timer_now_us()/1000); //added by drx.
     aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
 
 }
@@ -103,10 +103,13 @@ char wifi_get_connect_status(void){
  */
 int wifi_setup_sta(void){
 
-    LOGI(TAG, "wifi_setup_sta");
+    LOGI(TAG, "2.drx.-dt398-wifi_setup_sta"); // added by drx.
     user_ssid_t wifi_info;
-    strcpy(wifi_info.ssid, "Doit");                                 //wifi名称
-    strcpy(wifi_info.password, "doit3305");                         //wifi密码
+    // strcpy(wifi_info.ssid, "Doit");                                 //wifi名称
+    // strcpy(wifi_info.password, "doit3305");                         //wifi密码
+    puts("start wifi config\r\n"); // added by drx.
+    strcpy(wifi_info.ssid, "DATONG398");                                 //wifi名称
+    strcpy(wifi_info.password, "11111111");                         //wifi密码
     wifi_interface_t wifi_interface = wifi_mgmr_sta_enable();
     wifi_mgmr_sta_connect(wifi_interface, wifi_info.ssid, wifi_info.password, NULL, NULL, 0, 0);
     return 1;
@@ -121,26 +124,30 @@ void wifi_event_handler(wifi_event_indicate_t event){
     switch (event)
     {
         case WIFI_EVENT_CONNECT:
-            LOGE(TAG, "wifi_connect");
+            LOGE(TAG, "2.drx.wifi_connect"); //added by drx.
+            puts("2.drx.wifi_connect"); // added by drx.
 	//WIFI连接成功创建TCP任务
 	if (!tcpc_task_handle) {
 		if (xTaskCreate(tcp_client_conn, "tcp_client_conn", TCPC_TASK_SIZE, NULL, 2, &tcpc_task_handle) != pdPASS) {
-			LOGE(TAG, "create tcp_client_conn fail");
+			LOGE(TAG, "2.drx.create tcp_client_conn fail"); //added by drx.
+            	puts("2.drx.create tcp_client_conn fail"); // added by drx.
 		}
 	}
 	
             break;
         case WIFI_EVENT_DISCONNECT:
-            LOGE(TAG, "wifi_disconnect");
+            LOGE(TAG, "2.drx.wifi_disconnect"); //added by drx.
+            puts("2.drx.wifi_disconnect"); //added by drx.
             break;
         default:
-            LOGE(TAG, "wifi_event: %d",event);
+            LOGE(TAG, "2.drx.wifi_event: %d",event); //added by drx.
+            puts("2.drx.wifi_event"); //added by drx.
             break;
     }
 }   
 //TCP任务函数
 static void tcp_client_conn(void *pvParameters){
-    LOGI(TAG, "tcp_client_conn init");
+    LOGI(TAG, "2.drx.tcp_client_conn init"); //added by drx.
 	char re_hostbyname_cnt = 0;
 	char databuff[512];
 	memset(databuff, 0x00, sizeof(databuff));
@@ -149,6 +156,7 @@ static void tcp_client_conn(void *pvParameters){
 	struct sockaddr_in server_addr;
 	int client_fd = 0;
 	struct hostent *server_host = NULL;
+    int sent_cnt = 0;
     while(1){
     	if (!wifi_get_connect_status()) {
 			// LOGI(TAG, "wifi disconnected!");
@@ -158,61 +166,82 @@ static void tcp_client_conn(void *pvParameters){
         client_fd = socket(AF_INET, SOCK_STREAM, 0);
 
 		if (client_fd < 0) {
-			LOGI(TAG, "create socket fail: %d", client_fd);
+			LOGI(TAG, "2.drx.create socket fail: %d", client_fd); //added by drx.
 			vTaskDelay(1000 / portTICK_RATE_MS);
 			continue;
 		}
 
         memset(&server_addr, 0, sizeof(server_addr));
 		server_addr.sin_family = AF_INET;
-		server_addr.sin_port = htons(80);//修改为你的服务器端口号
-			uint8_t upload_srv_ip[4] = {192, 168, 9, 146};//修改为你的连接IP地址
-			memcpy(&server_addr.sin_addr.s_addr, upload_srv_ip, 4);
+		// server_addr.sin_port = htons(80);//修改为你的服务器端口号
+		server_addr.sin_port = htons(1234);//修改为你的服务器端口号 added by drx
+		uint8_t upload_srv_ip[4] = {192, 168, 1, 101};//修改为你的连接IP地址 modified by drx
+		memcpy(&server_addr.sin_addr.s_addr, upload_srv_ip, 4);
 		re_hostbyname_cnt = 0;
 		uint8_t sip[4];
 		memcpy(sip, (void *)&server_addr.sin_addr.s_addr, 4);
-		LOGI(TAG, "connectting server:(%d.%d.%d.%d)", sip[0], sip[1], sip[2], sip[3]);
+		LOGI(TAG, "2.drx.connectting server:(%d.%d.%d.%d)", sip[0], sip[1], sip[2], sip[3]);
 
         for (;;) {
         			//连接服务器
 			if (connect(client_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-				LOGE(TAG, "client connect %d", client_fd);
-				LOGI(TAG, "connect failed!");
+                puts("connect failed.\r\n"); // added by drx.
+				LOGE(TAG, "2.drx.client connect %d", client_fd); //  added by drx.
+				LOGI(TAG, "2.drx.connect failed!"); //  added by drx.
 				vTaskDelay(5000 / portTICK_RATE_MS);
 				close(client_fd);
 				break;
 			}
-			LOGI(TAG, "connect success!");
+			LOGI(TAG, "2.drx.connect success!"); //  added by drx.
+            puts("connect server success!\r\n"); // added by drx.
 			g_client_fd = client_fd;
 
-            const struct timeval timeout = { 10, 0 }; 
+            const struct timeval timeout = { 1, 0 }; 
 			setsockopt(client_fd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
 			memset(sub_buf, 0x00, sizeof(sub_buf));
 			//发送注册包
-			sprintf(sub_buf, "hello");
-			LOGI(TAG, "\nsubscribe buff: %s", sub_buf);
+			sprintf(sub_buf, "3.drx.hello_%d",sent_cnt++); //  added by drx.
+			LOGI(TAG, "\n2.drx.subscribe buff: %s", sub_buf); //  added by drx.
 			send(client_fd, sub_buf, strlen(sub_buf), 0);
 
             b_start_keep_alive = true;
+
+            // start: obtain chip id: added by drx.
+            uint8_t chipID[8];
+            EF_Ctrl_Read_Chip_ID(chipID);
+            // end: obtain chip id.
+            
             //处理服务器发送的消息
 			while (1) {
 				memset(databuff, 0x00, sizeof(databuff));
-				int len = recv(client_fd, databuff, sizeof(databuff), 0);
-				if (len > 0) {
-                LOGE(TAG, "recv: %s", databuff);
-				}
-				if (len == 0) {
-					LOGE(TAG, "close fd %d", client_fd);
-					break;
-				}
-				if (len < 0) {
-					if (errno == EAGAIN || errno == EWOULDBLOCK || errno == EINTR) {
-						;
-					} else {
-						LOGE(TAG, "len < 0");
-						break;
-					}
-				}
+                #if 1 //仅仅向服务器发送数据
+                    sprintf(sub_buf, "ChipID is %u_%d\r\n",chipID, sent_cnt++); //  added by drx.
+                    send(client_fd,sub_buf,strlen(sub_buf),0); // added by drx.
+                    vTaskDelay(200 / portTICK_RATE_MS); // added by drx. to make some delay.
+                #else //接收来自服务器的消息，同时向服务器发送消息
+                    int len = recv(client_fd, databuff, sizeof(databuff), 0);
+                    sprintf(sub_buf, "this is me: No. %u_%d\r\n",chipID, sent_cnt++); //  added by drx.
+                    send(client_fd,sub_buf,strlen(sub_buf),0); // added by drx.
+                    if (len > 0) {
+                        LOGE(TAG, "2.drx.recv: %s", databuff); //  added by drx.
+                        sprintf(sub_buf, "2.drx.recv: %s", databuff); //  added by drx.
+                        send(client_fd,sub_buf,strlen(sub_buf),0);
+                    }
+                    if (len == 0) {
+                        sprintf(sub_buf, "this is no. 4.: %d", sent_cnt++); //  added by drx.
+                        send(client_fd,sub_buf,strlen(sub_buf),0);
+                        LOGE(TAG, "2.drx.close fd %d", client_fd); //  added by drx.
+                        break;
+                    }
+                    if (len < 0) {
+                        if (errno == EAGAIN || errno == EWOULDBLOCK || errno == EINTR) {
+                            ;
+                        } else {
+                            LOGE(TAG, "2.drx.len < 0"); //  added by drx.
+                            break;
+                        }
+                    }
+                #endif
 			}
 			close(client_fd);
 			b_start_keep_alive = false;
@@ -224,14 +253,14 @@ static void tcp_client_conn(void *pvParameters){
 		vTaskDelay(10000 / portTICK_RATE_MS);
 	}
 
-        }
+}
 
 /*
     wifi初始化
  */
 void wifi_init(wifi_event_cb_t user_wifi_event_cb) {
     
-	LOGI(TAG, "wifi init");
+	LOGI(TAG, "2.drx.wifi init"); //added by drx.
     cmd_stack_wifi(NULL, 0, 0, NULL);
     static_wifi_cb = user_wifi_event_cb;
     void wifi_set_event_cb(void (*user_wifi_cb)(input_event_t *event, void *private_data));
