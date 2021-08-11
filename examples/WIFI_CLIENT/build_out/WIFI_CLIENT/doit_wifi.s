@@ -52,13 +52,13 @@ event_cb_wifi_event:
 	.cfi_remember_state
 	.cfi_restore 1
 	.loc 1 61 18 discriminator 4
-	lui	a2,%hi(.LC2)
+	lui	a2,%hi(.LC1)
 	mv	a1,a0
-	lui	a0,%hi(.LC4)
+	lui	a0,%hi(.LC3)
 	.loc 1 76 1 discriminator 4
 	.loc 1 61 18 discriminator 4
-	addi	a2,a2,%lo(.LC2)
-	addi	a0,a0,%lo(.LC4)
+	addi	a2,a2,%lo(.LC1)
+	addi	a0,a0,%lo(.LC3)
 	.loc 1 76 1 discriminator 4
 	addi	sp,sp,16
 	.cfi_def_cfa_offset 0
@@ -85,10 +85,10 @@ event_cb_wifi_event:
 .L7:
 	.loc 1 50 18 discriminator 4
 	mv	a1,a0
-	lui	a2,%hi(.LC2)
-	lui	a0,%hi(.LC3)
-	addi	a2,a2,%lo(.LC2)
-	addi	a0,a0,%lo(.LC3)
+	lui	a2,%hi(.LC1)
+	lui	a0,%hi(.LC2)
+	addi	a2,a2,%lo(.LC1)
+	addi	a0,a0,%lo(.LC2)
 	call	bl_printk
 .LVL4:
 	.loc 1 51 13 is_stmt 1 discriminator 4
@@ -150,10 +150,10 @@ event_cb_wifi_event:
 .L13:
 	.loc 1 66 18 discriminator 4
 	mv	a1,a0
-	lui	a2,%hi(.LC2)
-	lui	a0,%hi(.LC5)
-	addi	a2,a2,%lo(.LC2)
-	addi	a0,a0,%lo(.LC5)
+	lui	a2,%hi(.LC1)
+	lui	a0,%hi(.LC4)
+	addi	a2,a2,%lo(.LC1)
+	addi	a0,a0,%lo(.LC4)
 	call	bl_printk
 .LVL11:
 	.loc 1 67 13 is_stmt 1 discriminator 4
@@ -251,10 +251,10 @@ tcp_client_conn:
 .L24:
 	.loc 1 150 10 discriminator 4
 	mv	a1,a0
-	lui	s0,%hi(.LC2)
-	lui	a0,%hi(.LC6)
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,a0,%lo(.LC6)
+	lui	s0,%hi(.LC1)
+	lui	a0,%hi(.LC5)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,a0,%lo(.LC5)
 	call	bl_printk
 .LVL16:
 	.loc 1 151 2 is_stmt 1 discriminator 4
@@ -287,17 +287,17 @@ tcp_client_conn:
 .LBE66:
 .LBE65:
 	.loc 1 183 8 discriminator 4
-	lui	s5,%hi(.LC8)
+	lui	s5,%hi(.LC7)
 	.loc 1 178 11 discriminator 4
 	mv	s9,a5
 .LBB68:
 	.loc 1 188 17 discriminator 4
-	lui	s6,%hi(.LC9)
+	lui	s6,%hi(.LC8)
 	.loc 1 189 10 discriminator 4
-	lui	s7,%hi(.LC10)
-	lui	s8,%hi(.LC11)
+	lui	s7,%hi(.LC9)
+	lui	s8,%hi(.LC10)
 	.loc 1 190 10 discriminator 4
-	lui	s3,%hi(.LC12)
+	lui	s3,%hi(.LC11)
 .LVL19:
 .L25:
 .LBE68:
@@ -358,10 +358,10 @@ tcp_client_conn:
 .L30:
 	.loc 1 169 9 discriminator 4
 	mv	a1,a0
-	lui	a0,%hi(.LC7)
+	lui	a0,%hi(.LC6)
 	mv	a3,s2
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,a0,%lo(.LC7)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,a0,%lo(.LC6)
 	call	bl_printk
 .LVL27:
 	j	.L45
@@ -431,8 +431,8 @@ tcp_client_conn:
 	lbu	a4,29(sp)
 	lbu	a3,28(sp)
 	mv	a1,a0
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,s5,%lo(.LC8)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,s5,%lo(.LC7)
 	call	bl_printk
 .LVL37:
 	.loc 1 185 9 is_stmt 1 discriminator 4
@@ -447,7 +447,7 @@ tcp_client_conn:
 	.loc 1 187 7 discriminator 4
 	bge	a0,zero,.L33
 	.loc 1 188 17 is_stmt 1
-	addi	a0,s6,%lo(.LC9)
+	addi	a0,s6,%lo(.LC8)
 	call	puts
 .LVL39:
 	.loc 1 189 5
@@ -468,9 +468,9 @@ tcp_client_conn:
 	mv	a5,s2
 	mv	a1,a0
 	li	a4,189
-	addi	a3,s7,%lo(.LC10)
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,s8,%lo(.LC11)
+	addi	a3,s7,%lo(.LC9)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,s8,%lo(.LC10)
 	call	bl_printk
 .LVL41:
 	.loc 1 190 5 is_stmt 1 discriminator 4
@@ -489,8 +489,8 @@ tcp_client_conn:
 .L37:
 	.loc 1 190 10 discriminator 4
 	mv	a1,a0
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,s3,%lo(.LC12)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,s3,%lo(.LC11)
 	call	bl_printk
 .LVL43:
 	.loc 1 191 5 is_stmt 1 discriminator 4
@@ -538,47 +538,52 @@ tcp_client_conn:
 .L40:
 	.loc 1 195 9 discriminator 4
 	mv	a1,a0
-	lui	a0,%hi(.LC13)
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,a0,%lo(.LC13)
+	lui	a0,%hi(.LC12)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,a0,%lo(.LC12)
 	call	bl_printk
 .LVL50:
 	.loc 1 196 13 is_stmt 1 discriminator 4
-	lui	a0,%hi(.LC14)
-	addi	a0,a0,%lo(.LC14)
+	lui	a0,%hi(.LC13)
+	addi	a0,a0,%lo(.LC13)
 	call	puts
 .LVL51:
 	.loc 1 197 4 discriminator 4
 	.loc 1 199 13 discriminator 4
 	.loc 1 199 34 is_stmt 0 discriminator 4
-	lui	a1,%hi(.LANCHOR2)
-	li	a2,16
-	addi	a1,a1,%lo(.LANCHOR2)
-	addi	a0,sp,40
-	call	memcpy
-.LVL52:
-	.loc 1 200 4 is_stmt 1 discriminator 4
+	li	a4,1
+	.loc 1 200 4 discriminator 4
 	li	a1,4096
-	li	a4,16
+	.loc 1 199 34 discriminator 4
+	li	a5,0
+	.loc 1 200 4 discriminator 4
 	addi	a3,sp,40
 	addi	a2,a1,6
-	mv	a0,s2
+	.loc 1 199 34 discriminator 4
+	sw	a4,40(sp)
+	.loc 1 200 4 discriminator 4
 	addi	a1,a1,-1
+	li	a4,16
+	mv	a0,s2
+	.loc 1 199 34 discriminator 4
+	sw	a5,44(sp)
+	sw	zero,48(sp)
+	.loc 1 200 4 is_stmt 1 discriminator 4
 	call	lwip_setsockopt
-.LVL53:
+.LVL52:
 	.loc 1 201 4 discriminator 4
 	li	a2,200
 	li	a1,0
 	addi	a0,sp,72
 	call	memset
-.LVL54:
+.LVL53:
 	.loc 1 203 4 discriminator 4
-	lui	a1,%hi(.LC15)
+	lui	a1,%hi(.LC14)
 	li	a2,0
-	addi	a1,a1,%lo(.LC15)
+	addi	a1,a1,%lo(.LC14)
 	addi	a0,sp,72
 	call	sprintf
-.LVL55:
+.LVL54:
 	.loc 1 204 4 discriminator 4
 	.loc 1 204 9 discriminator 4
 .LBB75:
@@ -591,72 +596,76 @@ tcp_client_conn:
 	beq	a5,zero,.L41
 	.loc 1 204 113 discriminator 1
 	call	xTaskGetTickCountFromISR
-.LVL56:
+.LVL55:
 .L42:
 	.loc 1 204 9 discriminator 4
 	mv	a1,a0
-	lui	a0,%hi(.LC16)
+	lui	a0,%hi(.LC15)
 	addi	a3,sp,72
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,a0,%lo(.LC16)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,a0,%lo(.LC15)
 	call	bl_printk
-.LVL57:
+.LVL56:
 	.loc 1 205 4 is_stmt 1 discriminator 4
 	addi	a0,sp,72
 	call	strlen
-.LVL58:
+.LVL57:
 	li	a3,0
 	mv	a2,a0
 	addi	a1,sp,72
 	mv	a0,s2
 	call	lwip_send
-.LVL59:
+.LVL58:
 	.loc 1 207 13 discriminator 4
 	.loc 1 207 32 is_stmt 0 discriminator 4
-	lui	a5,%hi(.LANCHOR3)
+	lui	a5,%hi(.LANCHOR2)
 	li	a4,1
 	.loc 1 211 13 discriminator 4
 	addi	a0,sp,32
 	.loc 1 207 32 discriminator 4
-	sb	a4,%lo(.LANCHOR3)(a5)
+	sb	a4,%lo(.LANCHOR2)(a5)
 	.loc 1 210 13 is_stmt 1 discriminator 4
 	.loc 1 211 13 discriminator 4
 	call	EF_Ctrl_Read_Chip_ID
-.LVL60:
+.LVL59:
 	.loc 1 203 4 is_stmt 0 discriminator 4
 	li	a3,1
 	.loc 1 218 21 discriminator 4
-	lui	s1,%hi(.LC17)
-.LVL61:
+	lui	s1,%hi(.LC16)
+.LVL60:
 .L43:
 	.loc 1 216 5 discriminator 1
 	li	a2,512
 	li	a1,0
 	addi	a0,sp,272
 	sw	a3,12(sp)
-.LVL62:
+.LVL61:
 	.loc 1 215 4 is_stmt 1 discriminator 1
 	.loc 1 216 5 discriminator 1
 	call	memset
-.LVL63:
+.LVL62:
 	.loc 1 218 21 discriminator 1
 	lw	a3,12(sp)
 	addi	a2,sp,32
-	addi	a1,s1,%lo(.LC17)
+	addi	a1,s1,%lo(.LC16)
 	addi	a0,sp,72
 	addi	s0,a3,1
-.LVL64:
+.LVL63:
 	call	sprintf
-.LVL65:
+.LVL64:
 	.loc 1 219 21 discriminator 1
 	addi	a0,sp,72
 	call	strlen
-.LVL66:
+.LVL65:
 	li	a3,0
 	mv	a2,a0
 	addi	a1,sp,72
 	mv	a0,s2
 	call	lwip_send
+.LVL66:
+	.loc 1 220 21 discriminator 1
+	li	a0,200
+	call	vTaskDelay
 .LVL67:
 	.loc 1 218 21 is_stmt 0 discriminator 1
 	mv	a3,s0
@@ -726,27 +735,27 @@ wifi_setup_sta:
 .L49:
 	.loc 1 106 10 discriminator 4
 	mv	a1,a0
-	lui	a2,%hi(.LC2)
-	lui	a0,%hi(.LC18)
-	addi	a2,a2,%lo(.LC2)
-	addi	a0,a0,%lo(.LC18)
+	lui	a2,%hi(.LC1)
+	lui	a0,%hi(.LC17)
+	addi	a2,a2,%lo(.LC1)
+	addi	a0,a0,%lo(.LC17)
 	call	bl_printk
 .LVL73:
 	.loc 1 107 5 is_stmt 1 discriminator 4
 	.loc 1 110 5 discriminator 4
-	lui	a0,%hi(.LC19)
-	addi	a0,a0,%lo(.LC19)
+	lui	a0,%hi(.LC18)
+	addi	a0,a0,%lo(.LC18)
 	call	puts
 .LVL74:
 	.loc 1 111 5 discriminator 4
-	lui	a1,%hi(.LC20)
-	addi	a1,a1,%lo(.LC20)
+	lui	a1,%hi(.LC19)
+	addi	a1,a1,%lo(.LC19)
 	mv	a0,sp
 	call	strcpy
 .LVL75:
 	.loc 1 112 5 discriminator 4
-	lui	a1,%hi(.LC21)
-	addi	a1,a1,%lo(.LC21)
+	lui	a1,%hi(.LC20)
+	addi	a1,a1,%lo(.LC20)
 	addi	a0,sp,64
 	call	strcpy
 .LVL76:
@@ -806,8 +815,8 @@ wifi_event_handler:
 	.cfi_offset 18, -16
 	.cfi_offset 19, -20
 	lw	a5,%lo(TrapNetCounter)(a4)
-	lui	s1,%hi(.LC10)
-	lui	s0,%hi(.LC2)
+	lui	s1,%hi(.LC9)
+	lui	s0,%hi(.LC1)
 	.loc 1 124 5
 	beq	a0,zero,.L52
 	li	a4,1
@@ -824,17 +833,17 @@ wifi_event_handler:
 .L65:
 	.loc 1 143 18 discriminator 4
 	mv	a1,a0
-	lui	a0,%hi(.LC29)
-	addi	a0,a0,%lo(.LC29)
+	lui	a0,%hi(.LC28)
+	addi	a0,a0,%lo(.LC28)
 	mv	a5,s2
 	li	a4,143
-	addi	a3,s1,%lo(.LC10)
-	addi	a2,s0,%lo(.LC2)
+	addi	a3,s1,%lo(.LC9)
+	addi	a2,s0,%lo(.LC1)
 	call	bl_printk
 .LVL82:
 	.loc 1 144 13 is_stmt 1 discriminator 4
-	lui	a0,%hi(.LC30)
-	addi	a0,a0,%lo(.LC30)
+	lui	a0,%hi(.LC29)
+	addi	a0,a0,%lo(.LC29)
 	j	.L68
 .LVL83:
 .L52:
@@ -850,33 +859,33 @@ wifi_event_handler:
 .L56:
 	.loc 1 127 18 discriminator 4
 	mv	a1,a0
-	lui	a0,%hi(.LC22)
+	lui	a0,%hi(.LC21)
 	li	a4,127
-	addi	a3,s1,%lo(.LC10)
-	addi	a2,s0,%lo(.LC2)
-	addi	a0,a0,%lo(.LC22)
+	addi	a3,s1,%lo(.LC9)
+	addi	a2,s0,%lo(.LC1)
+	addi	a0,a0,%lo(.LC21)
 	call	bl_printk
 .LVL85:
 	.loc 1 128 13 is_stmt 1 discriminator 4
-	lui	a0,%hi(.LC23)
-	addi	a0,a0,%lo(.LC23)
+	lui	a0,%hi(.LC22)
+	addi	a0,a0,%lo(.LC22)
 	call	puts
 .LVL86:
 	.loc 1 130 2 discriminator 4
 	.loc 1 130 6 is_stmt 0 discriminator 4
-	lui	a5,%hi(.LANCHOR4)
+	lui	a5,%hi(.LANCHOR3)
 	.loc 1 130 5 discriminator 4
-	lw	a4,%lo(.LANCHOR4)(a5)
+	lw	a4,%lo(.LANCHOR3)(a5)
 	bne	a4,zero,.L51
 	.loc 1 131 3 is_stmt 1
 	.loc 1 131 7 is_stmt 0
-	lui	a1,%hi(.LC24)
+	lui	a1,%hi(.LC23)
 	lui	a0,%hi(tcp_client_conn)
-	addi	a5,a5,%lo(.LANCHOR4)
+	addi	a5,a5,%lo(.LANCHOR3)
 	li	a4,2
 	li	a3,0
 	li	a2,1024
-	addi	a1,a1,%lo(.LC24)
+	addi	a1,a1,%lo(.LC23)
 	addi	a0,a0,%lo(tcp_client_conn)
 	call	xTaskCreate
 .LVL87:
@@ -899,16 +908,16 @@ wifi_event_handler:
 .L61:
 	.loc 1 132 9 discriminator 4
 	mv	a1,a0
-	lui	a0,%hi(.LC25)
-	addi	a0,a0,%lo(.LC25)
+	lui	a0,%hi(.LC24)
+	addi	a0,a0,%lo(.LC24)
 	li	a4,132
-	addi	a3,s1,%lo(.LC10)
-	addi	a2,s0,%lo(.LC2)
+	addi	a3,s1,%lo(.LC9)
+	addi	a2,s0,%lo(.LC1)
 	call	bl_printk
 .LVL89:
 	.loc 1 133 14 is_stmt 1 discriminator 4
-	lui	a0,%hi(.LC26)
-	addi	a0,a0,%lo(.LC26)
+	lui	a0,%hi(.LC25)
+	addi	a0,a0,%lo(.LC25)
 .L68:
 	.loc 1 147 1 is_stmt 0 discriminator 4
 	lw	s0,24(sp)
@@ -951,16 +960,16 @@ wifi_event_handler:
 .L63:
 	.loc 1 139 18 discriminator 4
 	mv	a1,a0
-	lui	a0,%hi(.LC27)
-	addi	a0,a0,%lo(.LC27)
+	lui	a0,%hi(.LC26)
+	addi	a0,a0,%lo(.LC26)
 	li	a4,139
-	addi	a3,s1,%lo(.LC10)
-	addi	a2,s0,%lo(.LC2)
+	addi	a3,s1,%lo(.LC9)
+	addi	a2,s0,%lo(.LC1)
 	call	bl_printk
 .LVL95:
 	.loc 1 140 13 is_stmt 1 discriminator 4
-	lui	a0,%hi(.LC28)
-	addi	a0,a0,%lo(.LC28)
+	lui	a0,%hi(.LC27)
+	addi	a0,a0,%lo(.LC27)
 	j	.L68
 .LVL96:
 .L62:
@@ -999,11 +1008,11 @@ wifi_event_handler:
 	.type	wifi_init, @function
 wifi_init:
 .LFB15:
-	.loc 1 260 52 is_stmt 1
+	.loc 1 261 52 is_stmt 1
 	.cfi_startproc
 .LVL101:
-	.loc 1 262 2
-	.loc 1 262 7
+	.loc 1 263 2
+	.loc 1 263 7
 .LBB94:
 .LBB95:
 	.loc 2 151 5
@@ -1011,9 +1020,9 @@ wifi_init:
 	lui	a5,%hi(TrapNetCounter)
 .LBE95:
 .LBE94:
-	.loc 1 262 7
+	.loc 1 263 7
 	lw	a5,%lo(TrapNetCounter)(a5)
-	.loc 1 260 52
+	.loc 1 261 52
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
 	sw	s1,4(sp)
@@ -1022,73 +1031,73 @@ wifi_init:
 	.cfi_offset 9, -12
 	.cfi_offset 1, -4
 	.cfi_offset 8, -8
-	.loc 1 260 52
+	.loc 1 261 52
 	mv	s1,a0
-	.loc 1 262 7
+	.loc 1 263 7
 	beq	a5,zero,.L70
-	.loc 1 262 100 discriminator 1
+	.loc 1 263 100 discriminator 1
 	call	xTaskGetTickCountFromISR
 .LVL102:
 .L71:
-	.loc 1 262 7 discriminator 4
+	.loc 1 263 7 discriminator 4
 	mv	a1,a0
-	lui	a2,%hi(.LC2)
-	lui	a0,%hi(.LC31)
-	addi	a2,a2,%lo(.LC2)
-	addi	a0,a0,%lo(.LC31)
+	lui	a2,%hi(.LC1)
+	lui	a0,%hi(.LC30)
+	addi	a2,a2,%lo(.LC1)
+	addi	a0,a0,%lo(.LC30)
 	call	bl_printk
 .LVL103:
-	.loc 1 263 5 is_stmt 1 discriminator 4
+	.loc 1 264 5 is_stmt 1 discriminator 4
 .LBB96:
 .LBB97:
 	.loc 1 81 5 discriminator 4
 	.loc 1 84 5 discriminator 4
 	.loc 1 84 11 is_stmt 0 discriminator 4
-	lui	a5,%hi(.LANCHOR5)
-	addi	a5,a5,%lo(.LANCHOR5)
+	lui	a5,%hi(.LANCHOR4)
+	addi	a5,a5,%lo(.LANCHOR4)
 	.loc 1 84 8 discriminator 4
 	lbu	a3,0(a5)
 	li	a4,1
 	bne	a3,a4,.L72
 	.loc 1 85 9 is_stmt 1
-	lui	a0,%hi(.LC32)
-	addi	a0,a0,%lo(.LC32)
+	lui	a0,%hi(.LC31)
+	addi	a0,a0,%lo(.LC31)
 	call	puts
 .LVL104:
 	.loc 1 86 9
 .L73:
 .LBE97:
 .LBE96:
-	.loc 1 264 5 discriminator 4
-	.loc 1 269 1 is_stmt 0 discriminator 4
+	.loc 1 265 5 discriminator 4
+	.loc 1 270 1 is_stmt 0 discriminator 4
 	lw	s0,8(sp)
 	.cfi_remember_state
 	.cfi_restore 8
-	.loc 1 264 20 discriminator 4
+	.loc 1 265 20 discriminator 4
 	lui	a5,%hi(.LANCHOR1)
 	sw	s1,%lo(.LANCHOR1)(a5)
-	.loc 1 265 5 is_stmt 1 discriminator 4
-	.loc 1 266 2 discriminator 4
-	.loc 1 269 1 is_stmt 0 discriminator 4
+	.loc 1 266 5 is_stmt 1 discriminator 4
+	.loc 1 267 2 discriminator 4
+	.loc 1 270 1 is_stmt 0 discriminator 4
 	lw	ra,12(sp)
 	.cfi_restore 1
 	lw	s1,4(sp)
 	.cfi_restore 9
 .LVL105:
-	.loc 1 266 2 discriminator 4
+	.loc 1 267 2 discriminator 4
 	lui	a0,%hi(event_cb_wifi_event)
-	.loc 1 269 1 discriminator 4
-	.loc 1 266 2 discriminator 4
+	.loc 1 270 1 discriminator 4
+	.loc 1 267 2 discriminator 4
 	addi	a0,a0,%lo(event_cb_wifi_event)
-	.loc 1 269 1 discriminator 4
+	.loc 1 270 1 discriminator 4
 	addi	sp,sp,16
 	.cfi_def_cfa_offset 0
-	.loc 1 266 2 discriminator 4
+	.loc 1 267 2 discriminator 4
 	tail	wifi_set_event_cb
 .LVL106:
 .L70:
 	.cfi_restore_state
-	.loc 1 262 129 discriminator 2
+	.loc 1 263 129 discriminator 2
 	call	xTaskGetTickCount
 .LVL107:
 	j	.L71
@@ -1106,8 +1115,8 @@ wifi_init:
 .LVL109:
 	.loc 1 90 5
 	divu	a1,a0,s0
-	lui	a0,%hi(.LC33)
-	addi	a0,a0,%lo(.LC33)
+	lui	a0,%hi(.LC32)
+	addi	a0,a0,%lo(.LC32)
 	call	printf
 .LVL110:
 	.loc 1 91 5 is_stmt 1
@@ -1119,8 +1128,8 @@ wifi_init:
 .LVL112:
 	.loc 1 93 5
 	divu	a1,a0,s0
-	lui	a0,%hi(.LC34)
-	addi	a0,a0,%lo(.LC34)
+	lui	a0,%hi(.LC33)
+	addi	a0,a0,%lo(.LC33)
 	call	printf
 .LVL113:
 	.loc 1 94 5 is_stmt 1
@@ -1137,119 +1146,111 @@ wifi_init:
 	.size	wifi_init, .-wifi_init
 	.globl	tcpc_task_handle
 	.globl	b_start_keep_alive
-	.section	.rodata
-	.align	3
-	.set	.LANCHOR2,. + 0
-.LC1:
-	.word	1
-	.word	0
-	.word	500
-	.zero	4
 	.section	.rodata.event_cb_wifi_event.str1.4,"aMS",@progbits,1
 	.align	2
-.LC2:
+.LC1:
 	.string	"wifi"
 	.zero	3
-.LC3:
+.LC2:
 	.string	"\033[32m[%10u][%s] 4.drx.wifi disconnect\033[0m\r\n"
-.LC4:
+.LC3:
 	.string	"\033[32m[%10u][%s] 4.drx.wifi connect\033[0m\r\n"
 	.zero	3
-.LC5:
+.LC4:
 	.string	"\033[32m[%10u][%s] 4.drx.wifi get ip\033[0m\r\n"
 	.section	.rodata.tcp_client_conn.str1.4,"aMS",@progbits,1
 	.align	2
-.LC6:
+.LC5:
 	.string	"\033[32m[%10u][%s] 2.drx.tcp_client_conn init\033[0m\r\n"
 	.zero	3
-.LC7:
+.LC6:
 	.string	"\033[32m[%10u][%s] 2.drx.create socket fail: %d\033[0m\r\n"
 	.zero	1
-.LC8:
+.LC7:
 	.string	"\033[32m[%10u][%s] 2.drx.connectting server:(%d.%d.%d.%d)\033[0m\r\n"
 	.zero	3
-.LC9:
+.LC8:
 	.string	"connect failed.\r\n"
 	.zero	2
-.LC10:
+.LC9:
 	.string	"doit_wifi.c"
-.LC11:
+.LC10:
 	.string	"\033[31m[%10u][%s %s:%4d] 2.drx.client connect %d\033[0m\r\n"
 	.zero	3
-.LC12:
+.LC11:
 	.string	"\033[32m[%10u][%s] 2.drx.connect failed!\033[0m\r\n"
-.LC13:
+.LC12:
 	.string	"\033[32m[%10u][%s] 2.drx.connect success!\033[0m\r\n"
 	.zero	3
-.LC14:
+.LC13:
 	.string	"connect server success!\r\n"
 	.zero	2
-.LC15:
+.LC14:
 	.string	"3.drx.hello_%d"
 	.zero	1
-.LC16:
+.LC15:
 	.string	"\033[32m[%10u][%s] \n2.drx.subscribe buff: %s\033[0m\r\n"
-.LC17:
+.LC16:
 	.string	"ChipID is %u_%d\r\n"
 	.section	.rodata.wifi_event_handler.str1.4,"aMS",@progbits,1
 	.align	2
-.LC22:
+.LC21:
 	.string	"\033[31m[%10u][%s %s:%4d] 2.drx.wifi_connect\033[0m\r\n"
-.LC23:
+.LC22:
 	.string	"2.drx.wifi_connect"
 	.zero	1
-.LC24:
+.LC23:
 	.string	"tcp_client_conn"
-.LC25:
+.LC24:
 	.string	"\033[31m[%10u][%s %s:%4d] 2.drx.create tcp_client_conn fail\033[0m\r\n"
 	.zero	1
-.LC26:
+.LC25:
 	.string	"2.drx.create tcp_client_conn fail"
 	.zero	2
-.LC27:
+.LC26:
 	.string	"\033[31m[%10u][%s %s:%4d] 2.drx.wifi_disconnect\033[0m\r\n"
 	.zero	1
-.LC28:
+.LC27:
 	.string	"2.drx.wifi_disconnect"
 	.zero	2
-.LC29:
+.LC28:
 	.string	"\033[31m[%10u][%s %s:%4d] 2.drx.wifi_event: %d\033[0m\r\n"
 	.zero	2
-.LC30:
+.LC29:
 	.string	"2.drx.wifi_event"
 	.section	.rodata.wifi_init.str1.4,"aMS",@progbits,1
 	.align	2
-.LC31:
+.LC30:
 	.string	"\033[32m[%10u][%s] 2.drx.wifi init\033[0m\r\n"
 	.zero	2
-.LC32:
+.LC31:
 	.string	"2.drx.Wi-Fi Stack Started already!!!\r\n"
 	.zero	1
-.LC33:
+.LC32:
 	.string	"2.drx.Start Wi-Fi fw @%lums\r\n"
 	.zero	2
-.LC34:
+.LC33:
 	.string	"2.drx.Start Wi-Fi fw is Done @%lums\r\n"
 	.section	.rodata.wifi_setup_sta.str1.4,"aMS",@progbits,1
 	.align	2
-.LC18:
+.LC17:
 	.string	"\033[32m[%10u][%s] 2.drx.-dt398-wifi_setup_sta\033[0m\r\n"
 	.zero	2
-.LC19:
+.LC18:
 	.string	"start wifi config\r\n"
-.LC20:
+.LC19:
 	.string	"DATONG398"
 	.zero	2
-.LC21:
+.LC20:
 	.string	"11111111"
 	.section	.sbss.b_start_keep_alive,"aw",@nobits
-	.set	.LANCHOR3,. + 0
+	.set	.LANCHOR2,. + 0
 	.type	b_start_keep_alive, @object
 	.size	b_start_keep_alive, 1
 b_start_keep_alive:
 	.zero	1
 	.section	.sbss.stack_wifi_init.8754,"aw",@nobits
-	.set	.LANCHOR5,. + 0
+	.set	.LANCHOR4,. + 0
 	.type	stack_wifi_init.8754, @object
 	.size	stack_wifi_init.8754, 1
 stack_wifi_init.8754:
@@ -1269,7 +1270,7 @@ static_wifi_connect_status:
 	.zero	1
 	.section	.sbss.tcpc_task_handle,"aw",@nobits
 	.align	2
-	.set	.LANCHOR4,. + 0
+	.set	.LANCHOR3,. + 0
 	.type	tcpc_task_handle, @object
 	.size	tcpc_task_handle, 4
 tcpc_task_handle:
@@ -1321,10 +1322,9 @@ tcpc_task_handle:
 	.file 38 "/home/drxiang/programming/Doiting_BL/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h"
 	.file 39 "/home/drxiang/programming/Doiting_BL/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_ef_ctrl.h"
 	.file 40 "/home/drxiang/programming/Doiting_BL/bl_iot_sdk/components/network/lwip/src/include/lwip/def.h"
-	.file 41 "<built-in>"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x21ab
+	.4byte	0x2191
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
@@ -4086,7 +4086,7 @@ tcpc_task_handle:
 	.byte	0x29
 	.4byte	.LASF309
 	.byte	0x1
-	.2byte	0x104
+	.2byte	0x105
 	.byte	0x6
 	.4byte	.LFB15
 	.4byte	.LFE15-.LFB15
@@ -4096,52 +4096,66 @@ tcpc_task_handle:
 	.byte	0x2a
 	.4byte	.LASF297
 	.byte	0x1
-	.2byte	0x104
+	.2byte	0x105
 	.byte	0x20
 	.4byte	0xb7
 	.4byte	.LLST9
 	.byte	0x2b
 	.4byte	.LASF325
 	.byte	0x1
-	.2byte	0x109
+	.2byte	0x10a
 	.byte	0xa
 	.4byte	0x156d
 	.byte	0xd
 	.4byte	0x1f6
 	.byte	0
 	.byte	0x2c
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB94
 	.4byte	.LBE94-.LBB94
 	.byte	0x1
-	.2byte	0x106
+	.2byte	0x107
 	.byte	0x49
 	.byte	0x2d
-	.4byte	0x1f03
+	.4byte	0x1ef4
 	.4byte	.LBB96
 	.4byte	.Ldebug_ranges0+0x70
 	.byte	0x1
-	.2byte	0x107
+	.2byte	0x108
 	.byte	0x5
 	.4byte	0x1637
 	.byte	0x2e
-	.4byte	0x1f10
+	.4byte	0x1f01
 	.4byte	.LLST10
 	.byte	0x2e
-	.4byte	0x1f1c
+	.4byte	0x1f0d
 	.4byte	.LLST10
 	.byte	0x2e
-	.4byte	0x1f28
+	.4byte	0x1f19
 	.4byte	.LLST10
 	.byte	0x2e
-	.4byte	0x1f34
+	.4byte	0x1f25
 	.4byte	.LLST10
 	.byte	0x2f
 	.4byte	.Ldebug_ranges0+0x70
 	.byte	0x30
 	.4byte	.LVL104
-	.4byte	0x206c
+	.4byte	0x205d
 	.4byte	0x15d3
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC31
+	.byte	0
+	.byte	0x32
+	.4byte	.LVL109
+	.4byte	0x2069
+	.byte	0x30
+	.4byte	.LVL110
+	.4byte	0x2075
+	.4byte	0x15f3
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4150,12 +4164,15 @@ tcpc_task_handle:
 	.4byte	.LC32
 	.byte	0
 	.byte	0x32
-	.4byte	.LVL109
-	.4byte	0x2078
+	.4byte	.LVL111
+	.4byte	0x2081
+	.byte	0x32
+	.4byte	.LVL112
+	.4byte	0x2069
 	.byte	0x30
-	.4byte	.LVL110
-	.4byte	0x2084
-	.4byte	0x15f3
+	.4byte	.LVL113
+	.4byte	0x2075
+	.4byte	0x161c
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4163,26 +4180,9 @@ tcpc_task_handle:
 	.byte	0x3
 	.4byte	.LC33
 	.byte	0
-	.byte	0x32
-	.4byte	.LVL111
-	.4byte	0x2090
-	.byte	0x32
-	.4byte	.LVL112
-	.4byte	0x2078
-	.byte	0x30
-	.4byte	.LVL113
-	.4byte	0x2084
-	.4byte	0x161c
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC34
-	.byte	0
 	.byte	0x33
 	.4byte	.LVL114
-	.4byte	0x209c
+	.4byte	0x208d
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4203,27 +4203,27 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL102
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL103
-	.4byte	0x20b5
+	.4byte	0x20a6
 	.4byte	0x1660
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC31
+	.4byte	.LC30
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0
 	.byte	0x34
 	.4byte	.LVL106
-	.4byte	0x20c1
+	.4byte	0x20b2
 	.4byte	0x1677
 	.byte	0x31
 	.byte	0x1
@@ -4234,7 +4234,7 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL107
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0
 	.byte	0x35
 	.4byte	.LASF346
@@ -4245,7 +4245,7 @@ tcpc_task_handle:
 	.4byte	.LFE14-.LFB14
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x1c2d
+	.4byte	0x1c1e
 	.byte	0x36
 	.4byte	.LASF298
 	.byte	0x1
@@ -4265,7 +4265,7 @@ tcpc_task_handle:
 	.byte	0x1
 	.byte	0x98
 	.byte	0x7
-	.4byte	0x1c2d
+	.4byte	0x1c1e
 	.byte	0x3
 	.byte	0x91
 	.byte	0xd0,0x7b
@@ -4274,7 +4274,7 @@ tcpc_task_handle:
 	.byte	0x1
 	.byte	0x9a
 	.byte	0x7
-	.4byte	0x1c3e
+	.4byte	0x1c2f
 	.byte	0x3
 	.byte	0x91
 	.byte	0x88,0x7a
@@ -4299,7 +4299,7 @@ tcpc_task_handle:
 	.byte	0x1
 	.byte	0x9e
 	.byte	0x12
-	.4byte	0x1c4e
+	.4byte	0x1c3f
 	.4byte	.LLST5
 	.byte	0x37
 	.4byte	.LASF305
@@ -4310,7 +4310,7 @@ tcpc_task_handle:
 	.4byte	.LLST6
 	.byte	0x38
 	.4byte	.Ldebug_ranges0+0x18
-	.4byte	0x1ba9
+	.4byte	0x1b9a
 	.byte	0x26
 	.4byte	.LASF306
 	.byte	0x1
@@ -4331,7 +4331,7 @@ tcpc_task_handle:
 	.byte	0xdc,0x79
 	.byte	0x38
 	.4byte	.Ldebug_ranges0+0x50
-	.4byte	0x1a66
+	.4byte	0x1a57
 	.byte	0x26
 	.4byte	.LASF307
 	.byte	0x1
@@ -4351,28 +4351,28 @@ tcpc_task_handle:
 	.byte	0x91
 	.byte	0xe0,0x79
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB69
 	.4byte	.LBE69-.LBB69
 	.byte	0x1
 	.byte	0xbd
 	.byte	0x5b
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB71
 	.4byte	.LBE71-.LBB71
 	.byte	0x1
 	.byte	0xbe
 	.byte	0x52
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB73
 	.4byte	.LBE73-.LBB73
 	.byte	0x1
 	.byte	0xc3
 	.byte	0x52
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB75
 	.4byte	.LBE75-.LBB75
 	.byte	0x1
@@ -4380,7 +4380,7 @@ tcpc_task_handle:
 	.byte	0x56
 	.byte	0x30
 	.4byte	.LVL38
-	.4byte	0x20db
+	.4byte	0x20cc
 	.4byte	0x17c9
 	.byte	0x31
 	.byte	0x1
@@ -4402,40 +4402,40 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL39
-	.4byte	0x206c
+	.4byte	0x205d
 	.4byte	0x17e0
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC9
+	.4byte	.LC8
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL40
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL41
-	.4byte	0x20b5
+	.4byte	0x20a6
 	.4byte	0x181e
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC11
+	.4byte	.LC10
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5d
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC10
+	.4byte	.LC9
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5e
@@ -4451,11 +4451,59 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL42
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL43
-	.4byte	0x20b5
+	.4byte	0x20a6
 	.4byte	0x1847
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC11
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5c
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC1
+	.byte	0
+	.byte	0x30
+	.4byte	.LVL44
+	.4byte	0x20d9
+	.4byte	0x185c
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x3
+	.byte	0xa
+	.2byte	0x1388
+	.byte	0
+	.byte	0x30
+	.4byte	.LVL45
+	.4byte	0x20e6
+	.4byte	0x1870
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x2
+	.byte	0x82
+	.byte	0
+	.byte	0
+	.byte	0x32
+	.4byte	.LVL47
+	.4byte	0x20bf
+	.byte	0x32
+	.4byte	.LVL48
+	.4byte	0x20bf
+	.byte	0x32
+	.4byte	.LVL49
+	.4byte	0x2099
+	.byte	0x30
+	.4byte	.LVL50
+	.4byte	0x20a6
+	.4byte	0x18ab
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4467,93 +4515,23 @@ tcpc_task_handle:
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
-	.byte	0
-	.byte	0x30
-	.4byte	.LVL44
-	.4byte	0x20e8
-	.4byte	0x185c
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x3
-	.byte	0xa
-	.2byte	0x1388
-	.byte	0
-	.byte	0x30
-	.4byte	.LVL45
-	.4byte	0x20f5
-	.4byte	0x1870
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x2
-	.byte	0x82
-	.byte	0
-	.byte	0
-	.byte	0x32
-	.4byte	.LVL47
-	.4byte	0x20ce
-	.byte	0x32
-	.4byte	.LVL48
-	.4byte	0x20ce
-	.byte	0x32
-	.4byte	.LVL49
-	.4byte	0x20a8
-	.byte	0x30
-	.4byte	.LVL50
-	.4byte	0x20b5
-	.4byte	0x18ab
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC13
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5c
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL51
-	.4byte	0x206c
+	.4byte	0x205d
 	.4byte	0x18c2
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC14
+	.4byte	.LC13
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL52
-	.4byte	0x2102
-	.4byte	0x18e5
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x3
-	.byte	0x91
-	.byte	0xe8,0x79
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5b
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LANCHOR2
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5c
-	.byte	0x1
-	.byte	0x40
-	.byte	0
-	.byte	0x30
-	.4byte	.LVL53
-	.4byte	0x210d
-	.4byte	0x1913
+	.4byte	0x20f3
+	.4byte	0x18f0
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4585,9 +4563,9 @@ tcpc_task_handle:
 	.byte	0x40
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL54
-	.4byte	0x211a
-	.4byte	0x1933
+	.4byte	.LVL53
+	.4byte	0x2100
+	.4byte	0x1910
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4607,9 +4585,9 @@ tcpc_task_handle:
 	.byte	0xc8
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL55
-	.4byte	0x2126
-	.4byte	0x1956
+	.4byte	.LVL54
+	.4byte	0x210c
+	.4byte	0x1933
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4621,7 +4599,7 @@ tcpc_task_handle:
 	.byte	0x5b
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC15
+	.4byte	.LC14
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
@@ -4629,24 +4607,24 @@ tcpc_task_handle:
 	.byte	0x30
 	.byte	0
 	.byte	0x32
-	.4byte	.LVL56
-	.4byte	0x20a8
+	.4byte	.LVL55
+	.4byte	0x2099
 	.byte	0x30
-	.4byte	.LVL57
-	.4byte	0x20b5
-	.4byte	0x1986
+	.4byte	.LVL56
+	.4byte	0x20a6
+	.4byte	0x1963
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC16
+	.4byte	.LC15
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5d
@@ -4655,9 +4633,9 @@ tcpc_task_handle:
 	.byte	0x88,0x7a
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL58
-	.4byte	0x2132
-	.4byte	0x199b
+	.4byte	.LVL57
+	.4byte	0x2118
+	.4byte	0x1978
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4666,9 +4644,9 @@ tcpc_task_handle:
 	.byte	0x88,0x7a
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL59
-	.4byte	0x213e
-	.4byte	0x19bb
+	.4byte	.LVL58
+	.4byte	0x2124
+	.4byte	0x1998
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4688,9 +4666,9 @@ tcpc_task_handle:
 	.byte	0x30
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL60
-	.4byte	0x214b
-	.4byte	0x19d0
+	.4byte	.LVL59
+	.4byte	0x2131
+	.4byte	0x19ad
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4699,9 +4677,9 @@ tcpc_task_handle:
 	.byte	0xe0,0x79
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL63
-	.4byte	0x211a
-	.4byte	0x19f1
+	.4byte	.LVL62
+	.4byte	0x2100
+	.4byte	0x19ce
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4721,9 +4699,9 @@ tcpc_task_handle:
 	.2byte	0x200
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL65
-	.4byte	0x2126
-	.4byte	0x1a1e
+	.4byte	.LVL64
+	.4byte	0x210c
+	.4byte	0x19fb
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4735,7 +4713,7 @@ tcpc_task_handle:
 	.byte	0x5b
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC17
+	.4byte	.LC16
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
@@ -4751,9 +4729,9 @@ tcpc_task_handle:
 	.byte	0x6
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL66
-	.4byte	0x2132
-	.4byte	0x1a33
+	.4byte	.LVL65
+	.4byte	0x2118
+	.4byte	0x1a10
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4762,9 +4740,9 @@ tcpc_task_handle:
 	.byte	0x88,0x7a
 	.byte	0
 	.byte	0x30
-	.4byte	.LVL67
-	.4byte	0x213e
-	.4byte	0x1a53
+	.4byte	.LVL66
+	.4byte	0x2124
+	.4byte	0x1a30
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4783,29 +4761,40 @@ tcpc_task_handle:
 	.byte	0x1
 	.byte	0x30
 	.byte	0
+	.byte	0x30
+	.4byte	.LVL67
+	.4byte	0x20d9
+	.4byte	0x1a44
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x2
+	.byte	0x8
+	.byte	0xc8
+	.byte	0
 	.byte	0x32
 	.4byte	.LVL69
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0x32
 	.4byte	.LVL71
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0
 	.byte	0x3b
-	.4byte	0x1ef6
+	.4byte	0x1ee7
 	.4byte	.LBB65
 	.4byte	.Ldebug_ranges0+0x38
 	.byte	0x1
 	.byte	0xa1
 	.byte	0xb
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB78
 	.4byte	.LBE78-.LBB78
 	.byte	0x1
 	.byte	0xa9
 	.byte	0x58
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB80
 	.4byte	.LBE80-.LBB80
 	.byte	0x1
@@ -4813,8 +4802,8 @@ tcpc_task_handle:
 	.byte	0x61
 	.byte	0x30
 	.4byte	.LVL20
-	.4byte	0x20e8
-	.4byte	0x1aab
+	.4byte	0x20d9
+	.4byte	0x1a9c
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4824,8 +4813,8 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL24
-	.4byte	0x2158
-	.4byte	0x1ac8
+	.4byte	0x213e
+	.4byte	0x1ab9
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4844,23 +4833,23 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL26
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL27
-	.4byte	0x20b5
-	.4byte	0x1af7
+	.4byte	0x20a6
+	.4byte	0x1ae8
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC7
+	.4byte	.LC6
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5d
@@ -4870,11 +4859,11 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL29
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0x30
 	.4byte	.LVL32
-	.4byte	0x211a
-	.4byte	0x1b1f
+	.4byte	0x2100
+	.4byte	0x1b10
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4894,8 +4883,8 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL33
-	.4byte	0x2165
-	.4byte	0x1b34
+	.4byte	0x214b
+	.4byte	0x1b25
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4905,8 +4894,8 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL34
-	.4byte	0x2171
-	.4byte	0x1b55
+	.4byte	0x2157
+	.4byte	0x1b46
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4927,8 +4916,8 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL35
-	.4byte	0x2171
-	.4byte	0x1b76
+	.4byte	0x2157
+	.4byte	0x1b67
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -4949,30 +4938,30 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL36
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL37
-	.4byte	0x20b5
-	.4byte	0x1b9f
+	.4byte	0x20a6
+	.4byte	0x1b90
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC8
+	.4byte	.LC7
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL46
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0
 	.byte	0x3b
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB60
 	.4byte	.Ldebug_ranges0+0
 	.byte	0x1
@@ -4980,28 +4969,28 @@ tcpc_task_handle:
 	.byte	0x57
 	.byte	0x32
 	.4byte	.LVL15
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL16
-	.4byte	0x20b5
-	.4byte	0x1be2
+	.4byte	0x20a6
+	.4byte	0x1bd3
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC6
+	.4byte	.LC5
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL17
-	.4byte	0x211a
-	.4byte	0x1c03
+	.4byte	0x2100
+	.4byte	0x1bf4
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -5022,8 +5011,8 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL18
-	.4byte	0x211a
-	.4byte	0x1c23
+	.4byte	0x2100
+	.4byte	0x1c14
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -5044,18 +5033,18 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL22
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0
 	.byte	0x7
 	.4byte	0x8c
-	.4byte	0x1c3e
+	.4byte	0x1c2f
 	.byte	0x3c
 	.4byte	0x85
 	.2byte	0x1ff
 	.byte	0
 	.byte	0x7
 	.4byte	0x8c
-	.4byte	0x1c4e
+	.4byte	0x1c3f
 	.byte	0x8
 	.4byte	0x85
 	.byte	0xc7
@@ -5072,7 +5061,7 @@ tcpc_task_handle:
 	.4byte	.LFE13-.LFB13
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x1def
+	.4byte	0x1de0
 	.byte	0x36
 	.4byte	.LASF311
 	.byte	0x1
@@ -5081,7 +5070,7 @@ tcpc_task_handle:
 	.4byte	0xa4
 	.4byte	.LLST8
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB88
 	.4byte	.LBE88-.LBB88
 	.byte	0x1
@@ -5089,29 +5078,29 @@ tcpc_task_handle:
 	.byte	0x64
 	.byte	0x32
 	.4byte	.LVL81
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL82
-	.4byte	0x20b5
-	.4byte	0x1cc8
+	.4byte	0x20a6
+	.4byte	0x1cb9
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC29
+	.4byte	.LC28
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5d
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC10
+	.4byte	.LC9
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5e
@@ -5127,29 +5116,29 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL84
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL85
-	.4byte	0x20b5
-	.4byte	0x1d00
+	.4byte	0x20a6
+	.4byte	0x1cf1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC22
+	.4byte	.LC21
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5d
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC10
+	.4byte	.LC9
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5e
@@ -5159,19 +5148,19 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL86
-	.4byte	0x206c
-	.4byte	0x1d17
+	.4byte	0x205d
+	.4byte	0x1d08
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC23
+	.4byte	.LC22
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL87
-	.4byte	0x217d
-	.4byte	0x1d51
+	.4byte	0x2163
+	.4byte	0x1d42
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -5183,7 +5172,7 @@ tcpc_task_handle:
 	.byte	0x5b
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC24
+	.4byte	.LC23
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
@@ -5205,33 +5194,33 @@ tcpc_task_handle:
 	.byte	0x5f
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LANCHOR4
+	.4byte	.LANCHOR3
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL88
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL89
-	.4byte	0x20b5
-	.4byte	0x1d89
+	.4byte	0x20a6
+	.4byte	0x1d7a
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC25
+	.4byte	.LC24
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5d
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC10
+	.4byte	.LC9
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5e
@@ -5241,38 +5230,38 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x3e
 	.4byte	.LVL90
-	.4byte	0x206c
+	.4byte	0x205d
 	.byte	0x32
 	.4byte	.LVL91
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0x32
 	.4byte	.LVL92
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0x32
 	.4byte	.LVL94
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL95
-	.4byte	0x20b5
-	.4byte	0x1ddc
+	.4byte	0x20a6
+	.4byte	0x1dcd
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC27
+	.4byte	.LC26
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5d
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC10
+	.4byte	.LC9
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5e
@@ -5282,10 +5271,10 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL97
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0x32
 	.4byte	.LVL99
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0
 	.byte	0x3f
 	.4byte	.LASF347
@@ -5297,7 +5286,7 @@ tcpc_task_handle:
 	.4byte	.LFE12-.LFB12
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x1ef6
+	.4byte	0x1ee7
 	.byte	0x26
 	.4byte	.LASF312
 	.byte	0x1
@@ -5315,7 +5304,7 @@ tcpc_task_handle:
 	.4byte	0x12cf
 	.4byte	.LLST7
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB86
 	.4byte	.LBE86-.LBB86
 	.byte	0x1
@@ -5323,39 +5312,39 @@ tcpc_task_handle:
 	.byte	0x58
 	.byte	0x32
 	.4byte	.LVL72
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x30
 	.4byte	.LVL73
-	.4byte	0x20b5
-	.4byte	0x1e62
+	.4byte	0x20a6
+	.4byte	0x1e53
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC17
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5c
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC1
+	.byte	0
+	.byte	0x30
+	.4byte	.LVL74
+	.4byte	0x205d
+	.4byte	0x1e6a
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
 	.4byte	.LC18
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5c
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC2
-	.byte	0
-	.byte	0x30
-	.4byte	.LVL74
-	.4byte	0x206c
-	.4byte	0x1e79
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC19
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL75
-	.4byte	0x218a
-	.4byte	0x1e96
+	.4byte	0x2170
+	.4byte	0x1e87
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -5367,12 +5356,12 @@ tcpc_task_handle:
 	.byte	0x5b
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC20
+	.4byte	.LC19
 	.byte	0
 	.byte	0x30
 	.4byte	.LVL76
-	.4byte	0x218a
-	.4byte	0x1eb4
+	.4byte	0x2170
+	.4byte	0x1ea5
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -5384,15 +5373,15 @@ tcpc_task_handle:
 	.byte	0x5b
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC21
+	.4byte	.LC20
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL77
-	.4byte	0x2196
+	.4byte	0x217c
 	.byte	0x30
 	.4byte	.LVL78
-	.4byte	0x21a2
-	.4byte	0x1eec
+	.4byte	0x2188
+	.4byte	0x1edd
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5b
@@ -5428,7 +5417,7 @@ tcpc_task_handle:
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL79
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0
 	.byte	0x40
 	.4byte	.LASF348
@@ -5443,7 +5432,7 @@ tcpc_task_handle:
 	.byte	0x4e
 	.byte	0xd
 	.byte	0x1
-	.4byte	0x1f53
+	.4byte	0x1f44
 	.byte	0x42
 	.string	"buf"
 	.byte	0x1
@@ -5487,7 +5476,7 @@ tcpc_task_handle:
 	.4byte	.LFE9-.LFB9
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x2050
+	.4byte	0x2041
 	.byte	0x36
 	.4byte	.LASF311
 	.byte	0x1
@@ -5503,21 +5492,21 @@ tcpc_task_handle:
 	.4byte	0x135
 	.4byte	.LLST1
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB54
 	.4byte	.LBE54-.LBB54
 	.byte	0x1
 	.byte	0x3d
 	.byte	0x57
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB56
 	.4byte	.LBE56-.LBB56
 	.byte	0x1
 	.byte	0x32
 	.byte	0x5a
 	.byte	0x3a
-	.4byte	0x2050
+	.4byte	0x2041
 	.4byte	.LBB58
 	.4byte	.LBE58-.LBB58
 	.byte	0x1
@@ -5525,31 +5514,11 @@ tcpc_task_handle:
 	.byte	0x56
 	.byte	0x32
 	.4byte	.LVL1
-	.4byte	0x20a8
+	.4byte	0x2099
 	.byte	0x34
 	.4byte	.LVL2
-	.4byte	0x20b5
-	.4byte	0x1fe2
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC4
-	.byte	0x31
-	.byte	0x1
-	.byte	0x5c
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC2
-	.byte	0
-	.byte	0x32
-	.4byte	.LVL3
-	.4byte	0x20a8
-	.byte	0x30
-	.4byte	.LVL4
-	.4byte	0x20b5
-	.4byte	0x200b
+	.4byte	0x20a6
+	.4byte	0x1fd3
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
@@ -5561,37 +5530,57 @@ tcpc_task_handle:
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
 	.byte	0
 	.byte	0x32
-	.4byte	.LVL6
-	.4byte	0x20ce
-	.byte	0x32
-	.4byte	.LVL8
-	.4byte	0x20ce
-	.byte	0x32
-	.4byte	.LVL10
-	.4byte	0x20a8
+	.4byte	.LVL3
+	.4byte	0x2099
 	.byte	0x30
-	.4byte	.LVL11
-	.4byte	0x20b5
-	.4byte	0x2046
+	.4byte	.LVL4
+	.4byte	0x20a6
+	.4byte	0x1ffc
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC5
+	.4byte	.LC2
 	.byte	0x31
 	.byte	0x1
 	.byte	0x5c
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC2
+	.4byte	.LC1
+	.byte	0
+	.byte	0x32
+	.4byte	.LVL6
+	.4byte	0x20bf
+	.byte	0x32
+	.4byte	.LVL8
+	.4byte	0x20bf
+	.byte	0x32
+	.4byte	.LVL10
+	.4byte	0x2099
+	.byte	0x30
+	.4byte	.LVL11
+	.4byte	0x20a6
+	.4byte	0x2037
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC4
+	.byte	0x31
+	.byte	0x1
+	.byte	0x5c
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC1
 	.byte	0
 	.byte	0x32
 	.4byte	.LVL13
-	.4byte	0x20ce
+	.4byte	0x20bf
 	.byte	0
 	.byte	0x45
 	.4byte	.LASF351
@@ -5601,7 +5590,7 @@ tcpc_task_handle:
 	.4byte	0x137
 	.byte	0x3
 	.byte	0x46
-	.4byte	0x1ef6
+	.4byte	0x1ee7
 	.4byte	.LFB11
 	.4byte	.LFE11-.LFB11
 	.byte	0x1
@@ -5652,7 +5641,7 @@ tcpc_task_handle:
 	.4byte	.LASF325
 	.4byte	.LASF325
 	.byte	0x1
-	.2byte	0x109
+	.2byte	0x10a
 	.byte	0xa
 	.byte	0x48
 	.4byte	.LASF326
@@ -5678,11 +5667,6 @@ tcpc_task_handle:
 	.byte	0x1e
 	.2byte	0x247
 	.byte	0x6
-	.byte	0x49
-	.4byte	.LASF338
-	.4byte	.LASF352
-	.byte	0x29
-	.byte	0
 	.byte	0x48
 	.4byte	.LASF330
 	.4byte	.LASF330
@@ -6850,23 +6834,6 @@ tcpc_task_handle:
 	.byte	0xb
 	.byte	0
 	.byte	0
-	.byte	0x49
-	.byte	0x2e
-	.byte	0
-	.byte	0x3f
-	.byte	0x19
-	.byte	0x3c
-	.byte	0x19
-	.byte	0x6e
-	.byte	0xe
-	.byte	0x3
-	.byte	0xe
-	.byte	0x3a
-	.byte	0xb
-	.byte	0x3b
-	.byte	0xb
-	.byte	0
-	.byte	0
 	.byte	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
@@ -7000,25 +6967,25 @@ tcpc_task_handle:
 	.byte	0x30
 	.byte	0x9f
 	.4byte	.LVL23
-	.4byte	.LVL54
+	.4byte	.LVL53
 	.2byte	0x2
 	.byte	0x30
 	.byte	0x9f
-	.4byte	.LVL54
-	.4byte	.LVL61
+	.4byte	.LVL53
+	.4byte	.LVL60
 	.2byte	0x2
 	.byte	0x31
 	.byte	0x9f
-	.4byte	.LVL62
-	.4byte	.LVL63-1
+	.4byte	.LVL61
+	.4byte	.LVL62-1
 	.2byte	0x1
 	.byte	0x5d
-	.4byte	.LVL63-1
-	.4byte	.LVL64
+	.4byte	.LVL62-1
+	.4byte	.LVL63
 	.2byte	0x3
 	.byte	0x91
 	.byte	0xcc,0x79
-	.4byte	.LVL64
+	.4byte	.LVL63
 	.4byte	.LVL68
 	.2byte	0x1
 	.byte	0x58
@@ -7964,8 +7931,6 @@ tcpc_task_handle:
 	.string	"user_wifi_event_cb"
 .LASF338:
 	.string	"memcpy"
-.LASF352:
-	.string	"__builtin_memcpy"
 .LASF212:
 	.string	"stats_igmp"
 .LASF290:

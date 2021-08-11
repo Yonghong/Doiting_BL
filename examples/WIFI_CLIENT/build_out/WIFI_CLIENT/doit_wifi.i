@@ -8993,7 +8993,7 @@ static void tcp_client_conn(void *pvParameters){
             puts("connect server success!\r\n");
    g_client_fd = client_fd;
 
-            const struct timeval timeout = { 1, 500 };
+            const struct timeval timeout = { 1, 0 };
    lwip_setsockopt(client_fd,0xfff,0x1006,&timeout,sizeof(timeout));
    memset(sub_buf, 0x00, sizeof(sub_buf));
 
@@ -9018,13 +9018,14 @@ static void tcp_client_conn(void *pvParameters){
 
                     sprintf(sub_buf, "ChipID is %u_%d\r\n",chipID, sent_cnt++);
                     lwip_send(client_fd,sub_buf,strlen(sub_buf),0);
-# 244 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
+                    vTaskDelay(200 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
+# 245 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
    }
    lwip_close(client_fd);
    b_start_keep_alive = 
-# 246 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c" 3 4
+# 247 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c" 3 4
                        0
-# 246 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
+# 247 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
                             ;
    break;
   }
@@ -9043,13 +9044,13 @@ void wifi_init(wifi_event_cb_t user_wifi_event_cb) {
 
  do { bl_printk("\x1b[32m[%10u][%s] " "2.drx.wifi init" "\x1b[0m\r\n", (xPortIsInsideInterrupt())?(xTaskGetTickCountFromISR()):(xTaskGetTickCount()), "wifi"); } while(0);
     cmd_stack_wifi(
-# 263 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c" 3 4
+# 264 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c" 3 4
                   ((void *)0)
-# 263 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
+# 264 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
                       , 0, 0, 
-# 263 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c" 3 4
+# 264 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c" 3 4
                               ((void *)0)
-# 263 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
+# 264 "/home/drxiang/programming/Doiting_BL/examples/WIFI_CLIENT/WIFI_CLIENT/doit_wifi.c"
                                   );
     static_wifi_cb = user_wifi_event_cb;
     void wifi_set_event_cb(void (*user_wifi_cb)(input_event_t *event, void *private_data));
